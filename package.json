@@ -1,0 +1,36 @@
+{
+  "name": "pc-health-console",
+  "productName": "PC Health Console",
+  "version": "0.1.0",
+  "description": "Real-time PC health, driver, performance, and cleanup console for Windows.",
+  "private": true,
+  "main": "electron/main.js",
+  "type": "commonjs",
+  "scripts": {
+    "dev:vite": "vite",
+    "dev": "concurrently --kill-others-on-fail -n VITE,ELECTRON -c blue,green \"npm:dev:vite\" \"node electron/dev-launch.js\"",
+    "build:vite": "vite build",
+    "build": "npm run build:vite && electron-builder",
+    "verify:services": "node electron/services/verify-all.js"
+  },
+  "dependencies": {
+    "systeminformation": "^5.23.5"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^9.1.0",
+    "electron": "^33.2.1",
+    "electron-builder": "^25.1.8",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "vite": "^6.0.5",
+    "wait-on": "^8.0.1"
+  },
+  "build": {
+    "appId": "com.aeuxglobal.pchealthconsole",
+    "productName": "PC Health Console",
+    "directories": { "output": "dist" },
+    "files": ["dist-renderer/**/*", "electron/**/*", "package.json"],
+    "win": { "target": "nsis" }
+  }
+}

@@ -1,0 +1,16 @@
+node_modules/
+dist-renderer/
+dist/
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Electron/electron-builder
+out/
